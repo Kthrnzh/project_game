@@ -78,8 +78,8 @@ class Menu:
 		font_menu = pygame.font.SysFont('serif', 50)
 		punkt = 0
 		while done:
-			win.fill((0,0,0))
-
+			screen.fill((87,206,255))
+			win.fill((87,206,255))
 			mp = pygame.mouse.get_pos()
 			for i in self.punkts:
 				if mp[0]>i[0] and mp[0]<i[0]+155 and mp[1]>i[1] and mp[1]<i[1]+50:
