@@ -18,7 +18,7 @@ clock=pygame.time.Clock()
 
 
 win = pygame.display.set_mode((320, 500))
-screen = pygame.Surface((400, 400))
+screen = pygame.Surface((320, 500))
 pygame.display.set_caption(" CAR VS BLOCKS")
 
 x = 50
@@ -47,7 +47,7 @@ def draw_cactus():
 	global cactus_x, cactus_y, cactus_width, cactus_height, shot
 	if cactus_y <= 500:
 		win.blit(block,(cactus_x,cactus_y))
-		cactus_y += 8
+		cactus_y += 12
 	else:
 		shot += 1
 		cactus_y = 10
@@ -78,7 +78,7 @@ class Menu:
 		font_menu = pygame.font.SysFont('serif', 50)
 		punkt = 0
 		while done:
-			screen.fill((0,0,0))
+			win.fill((0,0,0))
 
 			mp = pygame.mouse.get_pos()
 			for i in self.punkts:
@@ -165,9 +165,12 @@ while run:
 
 			fontObj = pygame.font.SysFont('serif', 20)
 			fullstrin = 'Количество набранных очков: ' + str(shot)
-			text = fontObj.render(fullstrin, True, red, black)
+			text = fontObj.render(fullstrin, True, white, black)
+			text1 = fontObj.render('Нажмите крестик для выхода', True, white, black)
 
-			win.blit(text, (30,250))
+			win.blit(text, (27,250))
+			win.blit(text1, (35,290))
+
 
 			pygame.display.update()
 
@@ -175,11 +178,9 @@ while run:
 			while paused:
 				for event in pygame.event.get():
 					if event.type == pygame.QUIT:
+						paused = False
 						run = False
 
-				keys = pygame.key.get_pressed()	
-				if keys[pygame.K_RETURN]:
-					paused = False	
 
 			pygame.display.update()
 
