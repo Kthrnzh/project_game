@@ -51,7 +51,7 @@ def draw_cactus():
 	else:
 		shot += 1
 		cactus_y = 10
-		rand = random.uniform(1,3)
+		rand = random.uniform(1,4)
 
 		if rand < 2:
 			cactus_x = 44
@@ -158,6 +158,7 @@ while run:
 	win.blit(fon,(0,0))
 	win.blit(car,(x2,353))
 	draw_cactus()
+	
 
 	if x2 == cactus_x:
 		if cactus_y >= 325:
